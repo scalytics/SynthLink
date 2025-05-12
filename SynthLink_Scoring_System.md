@@ -11,7 +11,7 @@ This document defines target performance thresholds for the SynthLink Catalog’
 Responses are aggregated using the weighted sum:
 
 ```text
-Aggregate Score = 0.3·F1 + 0.2·P@5 + 0.3·RQS + 0.1·FCS + 0.1·IE
+Aggregate Score = 0.3 * F1 + 0.2 * P@5 + 0.3 * RQS + 0.1 * FCS + 0.1 * IE
 ```
 
 **Target Aggregate Score:** ≥ 0.90
@@ -23,10 +23,10 @@ Aggregate Score = 0.3·F1 + 0.2·P@5 + 0.3·RQS + 0.1·FCS + 0.1·IE
 * **Definition:** Harmonic mean of token-level precision and recall against the reference summary.
 * **Calculation:**
 
-  * Precision = $|P ∩ T| / |P|$
-  * Recall = $|P ∩ T| / |T|$
-  * F1 = $2 · Precision · Recall / (Precision + Recall)$
-* **Target Range:** 0.90–1.00
+  * `Precision = |P ∩ T| / |P|`
+  * `Recall    = |P ∩ T| / |T|`
+  * `F1        = 2 * Precision * Recall / (Precision + Recall)`
+* **Target Range:** 0.90 – 1.00
 * **Rationale:** Indicates comprehensive coverage of key facts with minimal omissions.
 
 ---
@@ -36,10 +36,8 @@ Aggregate Score = 0.3·F1 + 0.2·P@5 + 0.3·RQS + 0.1·FCS + 0.1·IE
 * **Definition:** Proportion of top-five retrieved documents that are relevant.
 * **Calculation:**
 
-  $$
-    P@5 = \frac{|D_{pred} ∩ D_{relevant}|}{5}
-  $$
-* **Target Range:** 0.80–1.00
+  * `P@5 = |D_pred ∩ D_relevant| / 5`
+* **Target Range:** 0.80 – 1.00
 * **Rationale:** Ensures robust source selection for evidence chaining.
 
 ---
@@ -49,10 +47,9 @@ Aggregate Score = 0.3·F1 + 0.2·P@5 + 0.3·RQS + 0.1·FCS + 0.1·IE
 * **Definition:** Fraction of predefined reasoning steps present in the system’s explanation, capped at 1.0.
 * **Calculation:**
 
-  $$
-    RQS = \min\Bigl(\frac{1}{n} \sum_{i=1}^{n} \mathbb{I}(s_i \text{ present}), 1.0\Bigr)
-  $$
-* **Target Range:** 0.90–1.00
+  * `RQS = min((1/n) * sum_{i=1..n} I(s_i present), 1.0)`
+  * Here, `I(condition)` is 1 if the step is present, otherwise 0.
+* **Target Range:** 0.90 – 1.00
 * **Rationale:** Validates that all critical inference steps are articulated.
 
 ---
@@ -62,9 +59,7 @@ Aggregate Score = 0.3·F1 + 0.2·P@5 + 0.3·RQS + 0.1·FCS + 0.1·IE
 * **Definition:** Proportion of factual claims that are verifiable against cited sources.
 * **Calculation:**
 
-  $$
-    FCS = \frac{1}{m} \sum_{j=1}^{m} \mathbb{I}(c_j \text{ verified})
-  $$
+  * `FCS = (1/m) * sum_{j=1..m} I(c_j verified)`
 * **Target Value:** 1.00
 * **Rationale:** Guarantees that all assertions are grounded in evidence, especially for speculative topics.
 
@@ -72,13 +67,11 @@ Aggregate Score = 0.3·F1 + 0.2·P@5 + 0.3·RQS + 0.1·FCS + 0.1·IE
 
 ## 5. Iterative Efficiency (IE)
 
-* **Definition:** Inverse of the number of iterations (k) required to produce the first correct answer, with k capped at 5.
+* **Definition:** Inverse of the number of iterations (`k`) required to produce the first correct answer, with `k` capped at 5.
 * **Calculation:**
 
-  $$
-    IE = \frac{1}{\min(k, 5)}
-  $$
-* **Target Range:** 0.50–1.00
+  * `IE = 1 / min(k, 5)`
+* **Target Range:** 0.50 – 1.00
 * **Rationale:** Measures the system’s convergence speed on complex queries.
 
 ---
