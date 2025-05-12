@@ -20,3 +20,7 @@ The SynthLink Catalog evaluates deep search responses using a scoring system tha
 - **Iterative Efficiency (IE)**: Evaluates how quickly the correct answer is found.
 
 Scores are combined into an aggregate score (0–1) with weights emphasizing accuracy and reasoning. For details, see [SynthLink_Scoring_System.md](SynthLink_Scoring_System.md). Run `scripts/score_synthlink.py` to compute scores automatically.
+
+## Scoring
+The SynthLink Catalog scores deep search responses on five metrics: answer accuracy (F1), source relevance (P@5), reasoning quality (RQS), fact-checking (FCS), and efficiency (IE). 
+A great score is ~0.85, indicating excellent performance. See [SynthLink_Scoring_System.md](SynthLink_Scoring_System.md) and [SynthLink_Scoring_Methodology.md](SynthLink_Scoring_Methodology.md). Run `scripts/score_synthlink.py` to compute scores.
