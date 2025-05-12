@@ -1,5 +1,7 @@
 # Performance Criteria for SynthLink Benchmark
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 This document defines target performance thresholds for the SynthLink Catalog’s five evaluation metrics. These criteria represent near-optimal system behavior when answering complex, multi-hop research questions.
 
 ---
