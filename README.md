@@ -9,7 +9,7 @@ The SynthLink Catalog is a collection of complex, multi-hop questions designed f
 - [Policy and Social Movements](PSM/SynthLink_Policy_Social_Movements.md)
 - [STEM and Future Tech](SFT/SynthLink_STEM_Future_Tech.md)
 
-## Scoring
+## Evaluation
 
 The SynthLink Catalog evaluates deep search responses using a scoring system that measures answer accuracy, source relevance, reasoning quality, fact-checking, and search efficiency. Each question is scored on five metrics:
 
